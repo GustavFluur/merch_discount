@@ -4,6 +4,25 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h2>Welcome to Merch Discount</h2>
+    <h2><span class="badge badge-warning">Newest</span> Merchandises</h2>
+    <div class="bg-secondary mt-3 p-5 text-center">
+
+        {% for merchandise in merchandises %}
+            <div>
+                <a href="">
+                    <div>
+                        <img src="{{ merchandise.image.url }}" class="rounded">
+                    </div>
+                    <div>
+
+                    </div class="rounded bg-secondary ">
+                    <h2 class="text-light">{{ merchandise.name }}</h2>
+                    <p class="text-light">Price: {{ merchandise.price }}</p>
+
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}
