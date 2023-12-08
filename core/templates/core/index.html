@@ -7,21 +7,25 @@
     <h2><span class="badge badge-warning">Newest</span> Merchandises</h2>
     <div class="bg-secondary mt-3 p-5 text-center">
 
-        {% for merchandise in merchandises %}
-            <div>
-                <a href="">
-                    <div>
-                        <img src="{{ merchandise.image.url }}" class="rounded img-fluid">
+        <div class="row">
+            {% for merchandise in merchandises %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100">
+                            <a href="">
+                                <div>
+                                    <img src="{{ merchandise.image.url }}" class="card-img-top img-fluid">
+                                    <hr>
+                                    <div>
+                                        <h2 class="text-dark">{{ merchandise.name }}</h2>
+                                        <p class="text-dark">Price: {{ merchandise.price }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div>
 
-                    </div class="rounded bg-secondary ">
-                    <h2 class="text-light">{{ merchandise.name }}</h2>
-                    <p class="text-light">Price: {{ merchandise.price }}</p>
-
-                </a>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
 
     </div>
 </div>
