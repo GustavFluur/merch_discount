@@ -11,7 +11,7 @@
             {% for merchandise in merchandises %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100">
-                            <a href="">
+                            <a href="{% url 'merchandise:detail' merchandise.id %}">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="{{ merchandise.image.url }}" class="card-img-top img-fluid">
