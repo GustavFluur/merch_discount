@@ -32,12 +32,13 @@
             <h2><span class="badge badge-warning p-3 ">Merch</span> Categories</h2>
             {% for category in categories %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        
                         <div class="h-100">
                             <a href="">
-                                <div>
-                                    <h6 class="card-title mt-0 text-white">{{ category.name }}</h6>
-                                    <p class="card-text text-white">{{ category.merchandises.count }}</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="card-title mt-0 text-white">{{ category.name }}</h6>
+                                        <p class="card-text text-warning">{{ category.merchandises.count }}</p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
