@@ -8,6 +8,6 @@ def merch_detail(request, pk):
     related_merchandises = Merchandise.objects.filter(category=merchandise.category, is_sold=False).exclude(pk=pk)[0:3]
 
     return render(request, 'merchandise/merch_detail.html', {
-        'merchandise': merchandise
+        'merchandise': merchandise,
         'related_merchandises': related_merchandises
     })
