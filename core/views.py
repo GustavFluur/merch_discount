@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from merchandises.models import Category, Merchandise
+from . forms import RegisterForm
 
 # Create your views here.
 def index(request):
@@ -15,3 +16,10 @@ def index(request):
 
 def contact(request):
     return render(request, 'core/contact.html')
+
+def register(request):
+    form = RegisterForm()
+
+    return render(request, 'core/register.html', {
+        'form': form
+    })
