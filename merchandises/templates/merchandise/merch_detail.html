@@ -42,8 +42,9 @@
             </div>
         </div>
         <div class="container-fluid">
-            <h2><span class="badge badge-primary">Related</span> Merchandises: </h2>
+            
             {% for merchandise in related_merchandises %}
+            <h2><span class="badge badge-primary">Related</span> Merchandises: </h2>
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100">
                             <a href="{% url 'merchandise:detail' merchandise.id %}">
