@@ -8,3 +8,21 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Your username',
+    
+    }))
+    
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'placeholder': 'Enter Email Address',
+    
+    }))
+
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+    'placeholder': 'Choose Password',
+    
+    }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+    'placeholder': 'Repeat Password',
+    
+    }))
