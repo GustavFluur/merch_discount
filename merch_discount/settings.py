@@ -29,6 +29,10 @@ ALLOWED_HOSTS = ['*', 'https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu107
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu107.gitpod.io']
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
