@@ -19,7 +19,7 @@ def merch_detail(request, pk):
 def new_merch(request):
     form = NewMerchandiseForm
 
-    return render(request, 'merchandises/form.html'{
+    return render(request, 'merchandise/form.html', {
         'form': form,
         'title': 'New Merchandise',
 
