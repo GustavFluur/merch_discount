@@ -1,4 +1,7 @@
+from django.contrib.auth.decorators import login_required 
 from django.shortcuts import render, get_object_or_404
+
+from .forms import NewMerchandiseForm
 from .models import Merchandise
 
 # Create your views here.
@@ -10,4 +13,14 @@ def merch_detail(request, pk):
     return render(request, 'merchandise/merch_detail.html', {
         'merchandise': merchandise,
         'related_merchandises': related_merchandises
+    })
+
+@login_required 
+def new_merch(request):
+    form = NewMerchandiseForm
+
+    return render(request, 'merchandises/form.html'{
+        'form': form,
+        'title': 'New Merchandise',
+
     })
