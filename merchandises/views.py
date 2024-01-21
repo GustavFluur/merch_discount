@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewMerchandiseForm
 from .models import Merchandise
@@ -17,7 +17,17 @@ def merch_detail(request, pk):
 
 @login_required 
 def new_merch(request):
-    form = NewMerchandiseForm
+    if request.method == 'POST':
+        form = NewMerchandiseForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            merchandise = form.save(commit=False) #for creating a new product without saving into DB
+            merchandise.created_by = request.user
+            merchandise.save()
+
+            return redirect('merchandise:detail', pk=merchandise.id)
+    else:        
+        form = NewMerchandiseForm()
 
     return render(request, 'merchandise/form.html', {
         'form': form,
