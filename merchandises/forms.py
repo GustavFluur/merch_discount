@@ -2,7 +2,7 @@ from django import forms
 
 from .models import Merchandise
 
-INPUT_CLASSES = 'col-sm-6 col-md-6 col-lg-4 col-xl-3 text-uppercase justify-content-center'
+INPUT_CLASSES = 'col-sm-12 col-md-8 col-lg-6 col-xl-4'
 class NewMerchandiseForm(forms.ModelForm):
     class Meta:
         model = Merchandise
