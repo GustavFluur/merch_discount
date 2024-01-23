@@ -34,3 +34,11 @@ def new_merch(request):
         'title': 'New Merchandise',
 
     })
+
+
+@login_required
+def delete_merch(request, pk):
+    merchandise = get_object_or_404(Merchandise, pk=pk, created_by=request.user)
+    merchandise.delete()
+
+    return redirect('dashboard:index')
