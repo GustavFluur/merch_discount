@@ -24,4 +24,24 @@ class NewMerchandiseForm(forms.ModelForm):
                 'class': INPUT_CLASSES
             }),
         }
+
+class EditMerchandiseForm(forms.ModelForm):
+    class Meta:
+        model = Merchandise
+        fields = ('name', 'description', 'price', 'image', 'is_sold')
+        widget = {
+
+            'name': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'description': forms.Textarea(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'price': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'image': forms.FileInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+        }
      

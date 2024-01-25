@@ -39,7 +39,7 @@
                             <div class="mb-5 mt-md-5">
                                 <p>This is your item!</p>
 
-                                <a href="#" class="btn-outline-info btn-lg">Edit</a>
+                                <a href="{% url 'merchandise:edit' merchandise.id %}" class="btn-outline-info btn-lg">Edit</a>
                                 <a href="{% url 'merchandise:delete' merchandise.id %}" class="btn-outline-danger btn-lg">Delete</a>
 
                             </div>
