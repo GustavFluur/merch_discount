@@ -4,7 +4,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import NewMerchandiseForm, EditMerchandiseForm
 from .models import Merchandise
 
-# Create your views here.
+def search(request):
+    merchandises = Merchandise.objects(is_sold=False)
+
+    return render(request, 'merchandise/merchandises.html', {
+        'merchandises': merchandises,  
+    })
 
 def merch_detail(request, pk):
     merchandise = get_object_or_404(Merchandise, pk=pk)
