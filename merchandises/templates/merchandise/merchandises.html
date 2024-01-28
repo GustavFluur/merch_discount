@@ -4,5 +4,33 @@
 {% block title %}Merchandises{% endblock %}
 
 {% block content %}
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">Side bar</div>
+        
+        
+        <div class="col-8">
+            <div class="row">
+                {% for merchandise in merchandises %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100">
+                                <a href="{% url 'merchandise:detail' merchandise.id %}">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img src="{{ merchandise.image.url }}" class="card-img-top img-fluid">
+                                            <hr>
+                                            <div>
+                                                <h2 class="card-title text-dark mt-0">{{ merchandise.name }}</h2>
+                                                <p class="card-text text-dark">Price: {{ merchandise.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+</div>
 {% endblock %}

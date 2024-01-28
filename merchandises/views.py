@@ -4,8 +4,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import NewMerchandiseForm, EditMerchandiseForm
 from .models import Merchandise
 
-def search(request):
-    merchandises = Merchandise.objects(is_sold=False)
+
+
+def search_merchandises(request):
+    merchandises = Merchandise.objects.filter(is_sold=False)
 
     return render(request, 'merchandise/merchandises.html', {
         'merchandises': merchandises,  
