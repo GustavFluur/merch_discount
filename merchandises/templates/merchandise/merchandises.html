@@ -5,8 +5,31 @@
 
 {% block content %}
 <div class="container-fluid">
+    
     <div class="row">
-        <div class="col-4 bg-secondary text-warning text-center"><h4>Side bar</h4>
+        <br>
+        <div class="col-4 bg-secondary">
+            <form method="get" action="{% url 'merchandise:merchandises' %}" class="mt-2">
+                <input name="query" class="form-control" placeholder="Find a merchandise of your choice...." aria-label="Find a merchandise of your choice...." aria-describedby="basic-addon2" type="text" value="{{ query }}">
+                <button type="submit" class="mt-2 p-3 bg-success">Search</button>
+            </form>
+            <hr>
+            <p class="text-warning">Categories</p>
+            <ul class="list-unstyled">
+                {% for category in categories %}
+                <li class="p-2 mb-2 rounded bg-light {% if category.id == category_id %} bg-primary {% endif %}">
+                    <a href="{% url 'merchandise:merchandises' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <hr>
+            <p class="text-warning">Clear Filter</p>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="{% url 'merchandise:merchandises' %}" class="rounded text-uppercase mt-6 bg-danger" type="submit"><p class="text-dark">reset</p></a>
+                </li>
+            </ul>
+
         </div>
         
         

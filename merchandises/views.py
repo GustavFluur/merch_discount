@@ -1,16 +1,29 @@
 from django.contrib.auth.decorators import login_required 
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewMerchandiseForm, EditMerchandiseForm
-from .models import Merchandise
+from .models import Category, Merchandise
 
 
 
 def search_merchandises(request):
+    query = request.GET.get('query', '')
+    category_id = request.GET.get('category', 0)
+    categories = Category.objects.all()
     merchandises = Merchandise.objects.filter(is_sold=False)
 
+    if category_id:
+        merchandises = merchandises.filter(category_id=category_id)
+
+    if query:
+         merchandises = merchandises.filter(Q(name__icontains=query) | Q(description__icontains=query))
+
     return render(request, 'merchandise/merchandises.html', {
-        'merchandises': merchandises,  
+        'merchandises': merchandises,
+        'query': query,
+        'categories': categories,
+        'category_id': int(category_id),   
     })
 
 def merch_detail(request, pk):
