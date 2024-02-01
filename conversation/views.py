@@ -7,7 +7,7 @@ from .models import Conversation
 def new_conversation(request, merchandise_pk):
     merchandise = get_object_or_404(Merchandise, pk=merchandise_pk)
 
-    if merchandises.created_by == request.user:
+    if merchandise.created_by == request.user:
         return redirect('dashboard:index')
 
     conversations = Conversation.objects.filter(merchandise=merchandise).filter(members__in=[request.user.id])
