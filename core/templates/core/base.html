@@ -37,7 +37,7 @@
                         </div>
                         {% if request.user.is_authenticated %}
                         <div class="col-6 col-sm-3">
-                            <a href="#" class="btn btn-outline-secondary btn-block">
+                            <a href="{% url 'conversation:inbox' %}" class="btn btn-outline-secondary btn-block">
                                 Inbox
                             </a>
                         </div>

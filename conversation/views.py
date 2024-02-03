@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required 
 from django.shortcuts import render, get_object_or_404, redirect
 from merchandises.models import Merchandise
 from .forms import ConversationMessageForm
 from .models import Conversation
 
-
+@login_required
 def new_conversation(request, merchandise_pk):
     merchandise = get_object_or_404(Merchandise, pk=merchandise_pk)
 
@@ -36,5 +37,23 @@ def new_conversation(request, merchandise_pk):
 
     return render(request, 'conversation/new.html', {
         'form':form
-    }) 
+    })
+
+
+@login_required
+def inbox(request):
+    conversations = Conversation.objects.filter(members__in=[request.user.id])
+
+    return render(request, 'conversation/inbox.html', {
+        'conversations': conversations
+    })
+
+@login_required
+def detail(request, pk):
+    conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
+
+    return render(request, 'conversation/detail.html', {
+        'conversation': conversation
+    })
+
 
