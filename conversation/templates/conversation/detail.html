@@ -8,7 +8,7 @@
 
 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
     {% for message in conversation.messages.all %}
-    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+    <div class="col-sm-6 col-md-6 {% if message.created_by == request.user %} bg-success {% else %} bg-warning {% endif %} col-lg-4 col-xl-3 p-6">
         <div>
             <p>{{ message.created_by.username }} | {{ message.created_at }} </p>
             <p>{{ message.content }}</p>
@@ -17,5 +17,12 @@
     {% endfor %}
 
 </div>
+<form method="post" action=".">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <button class="btn btn-success rounded-circle text-uppercase justify-content-center mt-4" type="submit">Send</button>
+</form>
 
 {% endblock %}

@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-6acz0ftzk33it=!=$k$j4foggnr_-dko9(u9dvey-44+2#fc$z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu107.gitpod.io']
+ALLOWED_HOSTS = ['*', 'https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu108.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu107.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-gustavfluur-merchdiscou-3wb0aspaalw.ws-eu108.gitpod.io']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
