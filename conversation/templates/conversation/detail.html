@@ -8,16 +8,16 @@
 
 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
     {% for message in conversation.messages.all %}
-    <div class="col-sm-6 col-md-6 {% if message.created_by == request.user %} bg-success {% else %} bg-warning {% endif %} col-lg-4 col-xl-3 p-6">
+    <div class="col-sm-6 col-md-6 {% if message.created_by == request.user %} bg-primary {% else %} bg-success{% endif %} col-lg-4 col-xl-3 p-6">
         <div>
-            <p>{{ message.created_by.username }} | {{ message.created_at }} </p>
+            <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{ message.created_at }} </p>
             <p>{{ message.content }}</p>
         </div>
     </div>
     {% endfor %}
 
 </div>
-<form method="post" action=".">
+<form method="post" action="." class="mt-6">
     {% csrf_token %}
     
     {{ form.as_p }}
