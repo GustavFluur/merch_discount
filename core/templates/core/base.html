@@ -58,27 +58,26 @@
         <div>
             {% block content %}
             {% endblock %}
-        </div>
-
-        <footer class="bg-secondary mt-5 px-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col w-100">
-                        <h5 class="font-weight-bold text-light mt-2">About</h5>
-                        <p class="text-light">This is a website and its great, please call the nearest center for extra help</p>
-                    </div>
-                    <div class="col w-100">
-                        <h5 class="font-weight-bold text-light mt-2">Menu</h5>
-                        <ul class="list-unstyled">
-                            <li class="list-unstyled"><a href="{% url 'core:about' %}" class="nav-link text-lg text-warning d-block p-3">About</a></li>
-                            <li class="list-unstyled"><a href="{% url 'core:contact' %}" class="nav-link text-lg text-warning d-block p-3">Contact</a></li>
-                            <li class="list-unstyled"><a href="" class="nav-link text-lg text-warning d-block p-3">Privacy Policy</a></li>
-                            <li class="list-unstyled"><a href="" class="nav-link text-lg text-warning d-block p-3">Term of Use</a></li>
-                        </ul>
+            <footer class="bg-secondary mt-5 px-4">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col w-100">
+                            <h5 class="font-weight-bold text-light mt-2">About</h5>
+                            <p class="text-light">This is a website and its great, please call the nearest center for extra help</p>
+                        </div>
+                        <div class="col w-100">
+                            <h5 class="font-weight-bold text-light mt-2">Menu</h5>
+                            <ul class="list-unstyled">
+                                <li class="list-unstyled"><a href="{% url 'core:about' %}" class="nav-link text-lg text-warning d-block p-3">About</a></li>
+                                <li class="list-unstyled"><a href="{% url 'core:contact' %}" class="nav-link text-lg text-warning d-block p-3">Contact</a></li>
+                                <li class="list-unstyled"><a href="" class="nav-link text-lg text-warning d-block p-3">Privacy Policy</a></li>
+                                <li class="list-unstyled"><a href="" class="nav-link text-lg text-warning d-block p-3">Term of Use</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
