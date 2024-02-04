@@ -17,6 +17,9 @@ def index(request):
 def contact(request):
     return render(request, 'core/contact.html')
 
+def about(request):
+    return render(request, 'core/about.html')
+
 def register(request):
     
     if request.method == 'POST':
